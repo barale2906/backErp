@@ -15,7 +15,7 @@ export const Inventario = sequelize.define("inventarios", {
     },
     expiration: {
         type: DataTypes.DATEONLY,
-        allowNull: false
+        allowNull: true
     },
     cantidad:{
         type: DataTypes.DOUBLE,

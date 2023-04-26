@@ -194,3 +194,16 @@ export async function getDetalleFactura(req, res) {
     return res.status(500).json({ message: e.message });
   }    
 }
+
+// Obtener el mayor Id de los productos
+export const getproductomaxId = async (req, res)=>{
+  try{
+    const maxId = await Productos.max('id');
+    console.log(maxId)
+    res.status(201).json(maxId);
+  } catch (error){
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+}

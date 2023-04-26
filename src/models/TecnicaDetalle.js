@@ -11,56 +11,56 @@ export const TecnicaDetalle = sequelize.define("tecnicaDetalles", {
     },
     cum: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     },
     generico: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     },
     comercial: {
         type: DataTypes.TEXT,
-        allowNull: false
+        allowNull: true
     },
     lote: {
         type: DataTypes.TEXT,
-        allowNull: false
+        allowNull: true
     },
     expiration: {
         type: DataTypes.DATEONLY,
-        allowNull: false
+        allowNull: true
     },
     invima: {
         type: DataTypes.TEXT,
-        allowNull: false
+        allowNull: true
     },
     tipoproducto: {
         type: DataTypes.TEXT,
-        allowNull: false
+        allowNull: true
     },
     etiquetado: {
         type: DataTypes.TEXT,
-        allowNull: false
+        allowNull: true
     },
     embalajePrimario: {
         type: DataTypes.TEXT,
-        allowNull: false
+        allowNull: true
     },
     embalajeSecundario: {
         type: DataTypes.TEXT,
-        allowNull: false
+        allowNull: true
     },
     condicionesPresentacionLiquida: {
         type: DataTypes.TEXT,
-        allowNull: false
+        allowNull: true
     },
     cierresHermeticos: {
         type: DataTypes.TEXT,
-        allowNull: false
+        allowNull: true
     }
     ,
     condicionesDM: {
         type: DataTypes.TEXT,
-        allowNull: false
+        allowNull: true
     },
     observations: {
         type: DataTypes.TEXT,

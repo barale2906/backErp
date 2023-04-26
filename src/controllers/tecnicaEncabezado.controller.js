@@ -16,7 +16,7 @@ export async function getTecnicaEncabezados(req, res) {
         message: error.message,
       });
     }
-  }
+}
 
 // Obtener tecnicaEncabezado en un periódo
 export async function getTecnicaEncaRango(req, res) {
@@ -43,6 +43,7 @@ export async function getTecnicaEncaRango(req, res) {
 // Crear TecnicaEncabezado
 export async function createTecnicaEncabezado(req, res) {
     //const { code, name, description, unit, imagen } = req.body;
+    console.log(req.body);
     try {        
         let newTecnicaEncabezado = await TecnicaEncabezado.create(req.body);
         return res.status(201).json(newTecnicaEncabezado);

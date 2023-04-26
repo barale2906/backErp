@@ -16,7 +16,7 @@ export const TecnicaEncabezado = sequelize.define("tecnicaEncabezados", {
     },
     transportadora: {
         type: Sequelize.STRING,
-        allowNull: true
+        defaultValue: "Cargue ordinario"
     },
     factura: {
         type: Sequelize.STRING,
@@ -24,7 +24,7 @@ export const TecnicaEncabezado = sequelize.define("tecnicaEncabezados", {
     },
     embalaje: {
         type: Sequelize.TEXT,
-        allowNull: false
+        defaultValue: "Cargue ordinario"
     },
     observaciones: {
         type: Sequelize.TEXT,
@@ -39,10 +39,15 @@ export const TecnicaEncabezado = sequelize.define("tecnicaEncabezados", {
         allowNull: false,
         defaultValue: 0
     },
+    tipo:{
+        type: Sequelize.INTEGER,
+        defaultValue: 1 // 1 tecnica Farmacia, 2 ordinario
+    },
     status:{
         type: Sequelize.INTEGER,
         defaultValue: 1 // 1 en proceso, 2 aprobada, 3 desaprobada, 4 abonada, 5 pagada
     }
+
 });
 
 // Activar la relación con tecnica Detalle

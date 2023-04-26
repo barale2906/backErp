@@ -1,5 +1,5 @@
 import {Router} from 'express'
-import { activProducto, createProducto, getcode, getDetalleFactura, getInventarioLP, getListaPrecios, getProducto, getProductos, updateProducto } from '../controllers/producto.controller.js';
+import { activProducto, createProducto, getcode, getDetalleFactura, getInventarioLP, getListaPrecios, getProducto, getproductomaxId, getProductos, updateProducto } from '../controllers/producto.controller.js';
 
 
 
@@ -20,5 +20,7 @@ const router = Router();
   router.get("/:fact/detalle", getDetalleFactura); // muestra los productos cargados a una factura
 
   router.get("/:code/code", getcode); // Verifica la existencia de un producto por código de barras
+
+  router.get("/1/max", getproductomaxId); // Obtiene el máximo Id de los productos
   
 export default router;
