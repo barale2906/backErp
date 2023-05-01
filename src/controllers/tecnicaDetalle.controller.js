@@ -88,3 +88,28 @@ export async function deleteTecnicaDetalle(req, res) {
       return res.status(500).json({ message: error.message });
     }
 }
+
+// Obtener costo por producto y bodega
+export async function getcostolistapreci(req, res) {   
+  const { bod } = req.params; 
+  const {producto} = req.params;
+  try {
+    const tecnicadetalle = await TecnicaDetalle.findAll({      
+      order:[
+          ['id', 'DESC']
+      ],      
+      where:{
+        bodegaId:bod,
+        prodId:producto
+      },
+      limit:3
+    });
+    res.status(201).json(tecnicadetalle);
+    
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+  
+}

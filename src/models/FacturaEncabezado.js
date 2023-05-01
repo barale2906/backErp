@@ -49,7 +49,7 @@ export const FacturaEncabezado = sequelize.define("facturaEncabezados", {
         type: DataTypes.STRING,
         allowNull: true,
         defaultValue: "Efectivo"
-    },
+    },    
     status:{
         type: DataTypes.INTEGER,
         defaultValue: 1 // 1 Creada, numero diferente corresponde al recibo de cierre de caja

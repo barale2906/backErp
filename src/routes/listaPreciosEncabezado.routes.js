@@ -10,7 +10,7 @@ const router = Router();
   router.put("/:id", updateListaEncabezado); 
   router.delete("/:id/:status", deleteListaEncabezado) ;
 
-  router.get("/:bod/vigente", getListaEncavigente);
+  router.get("/:bod/:tipo", getListaEncavigente);
   
   
   export default router;

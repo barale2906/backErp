@@ -94,12 +94,14 @@ export async function deleteListaEncabezado(req, res) {
 
 // Obtener listaPrecios vigente por bodega
 export async function getListaEncavigente(req, res) {   
-  const { bod } = req.params; 
+  const { bod } = req.params;
+  const { tipo } = req.params; 
   try {
     const listaEncabezado = await ListaPrecioEncabezado.findOne({
       include: [{model: Bodegas}],
       where:{
         bodegaId:bod,
+        tipo:tipo,
         status:2
       },
       

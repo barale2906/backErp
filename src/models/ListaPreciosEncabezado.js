@@ -25,6 +25,10 @@ export const ListaPrecioEncabezado = sequelize.define("listaPreciosEncabezado", 
         type: Sequelize.TEXT,
         allowNull: false
     },
+    tipo:{
+        type: Sequelize.INTEGER,
+        defaultValue: 1 // 1 publico, 2 coworking
+    },
     status:{
         type: Sequelize.INTEGER,
         defaultValue: 1 // 1 en proceso, 2 activa, 3 inactiva

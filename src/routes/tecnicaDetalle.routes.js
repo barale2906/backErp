@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import { createTecnicaDetalle, deleteTecnicaDetalle, getTecnicaDetalle, getTecnicaDetalles, updateTecnicaDetalle } from '../controllers/tecnicaDetalle.controller.js';
+import { createTecnicaDetalle, deleteTecnicaDetalle, getTecnicaDetalle, getTecnicaDetalles, getcostolistapreci, updateTecnicaDetalle } from '../controllers/tecnicaDetalle.controller.js';
 
 const router = Router();
   
@@ -9,5 +9,6 @@ const router = Router();
   router.put("/:id", updateTecnicaDetalle);  
   router.get("/:id", getTecnicaDetalle);
   router.delete("/:id", deleteTecnicaDetalle);
+  router.get("/:bod/:producto", getcostolistapreci);
   
   export default router;
