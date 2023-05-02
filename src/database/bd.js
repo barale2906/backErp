@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize'
 
-export const sequelize = new Sequelize('farmacia', 'postgres', 'mysql', {
+export const sequelize = new Sequelize('consultorio', 'postgres', 'mysql', {
     host: 'localhost',
     dialect: 'postgres',
     operatorsAliases:0,

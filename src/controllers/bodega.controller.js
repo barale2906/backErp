@@ -1,6 +1,6 @@
 import { Bodegas } from "../models/Bodega.js";
 
-
+ 
 // Obtener el total de las bodegas
 export async function getBodegas(req, res) {
     try {

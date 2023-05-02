@@ -27,14 +27,10 @@ import efectivo from './routes/efectivo.routers.js';
 import facturaEncabezado from './routes/facturaEncabezado.routes.js';
 import facturaDetalle from './routes/facturaDetalle.routes.js';
 import basicos from './routes/basicos.routes.js';
-
-
-
-
-
-
-
-
+import membresiaEncabezados from './routes/membresiaEncabezados.routes.js';
+import membresiaUsuarios from './routes/membresiaUsuarios.routes.js';
+import membresiaProductos from './routes/membresiaProductos.routes.js';
+import medioPagos from './routes/medioPago.routes.js';
 
 
 //Routes
@@ -55,6 +51,9 @@ app.use('/api/efectivo', efectivo);
 app.use('/api/facturaEncabezado', facturaEncabezado);
 app.use('/api/facturaDetalle',facturaDetalle);
 app.use('/api/basicos',basicos);
-
+app.use('/api/membresiaencabezado', membresiaEncabezados);
+app.use('/api/membresiausuario', membresiaUsuarios);
+app.use('/api/membresiaproducto', membresiaProductos);
+app.use('/api/medioPago', medioPagos)
 
 export default app;

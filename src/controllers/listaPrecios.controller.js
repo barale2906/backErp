@@ -17,7 +17,7 @@ export async function getListaPrecios(req, res) {
       });
     }
 }
- 
+
 // Crear listaPrecio
 export async function createListaPrecio(req, res) {
     
@@ -31,7 +31,7 @@ export async function createListaPrecio(req, res) {
     }
     res.json("received");
 }
- 
+
 //Lista precios por encabezado
 export async function getListaPrecio(req, res) {
     const { id } = req.params;

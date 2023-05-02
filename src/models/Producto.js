@@ -4,6 +4,7 @@ import { FacturaDetalle } from './FacturaDetalle.js';
 import { Inventario } from './Inventario.js';
 import { ListaPrecio } from './ListaPrecios.js';
 import { TecnicaDetalle } from './TecnicaDetalle.js';
+import { MembresiaProductos } from './MembresiaProductos.js';
 
 
 export const Productos = sequelize.define("productos", {
@@ -108,5 +109,13 @@ FacturaDetalle.belongsTo(Productos,{
     targetId: 'id'
 })
 
+// Activar la relación con membresia Productos
+Productos.hasMany(MembresiaProductos, {
+    foreignKey: 'prodId',
+    sourceKey: 'id'
+})
 
-
+MembresiaProductos.belongsTo(Productos,{
+    foreignKey: 'prodId',
+    targetId: 'id'
+})

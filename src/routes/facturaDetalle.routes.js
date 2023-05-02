@@ -6,7 +6,7 @@ const router = Router();
   // Routes
   router.post("/", createFacturaDetalle);
   router.get("/", getFacturaDetalles);
-  router.put("/:id", updateFacturaDetalle);  
+  router.put("/:factId/:prodId", updateFacturaDetalle);  
   router.get("/:id", getFacturaDetalle);
   router.delete("/:id", deleteFacturaDetalle);
   

@@ -76,7 +76,24 @@ export async function getFacturaEncabezado(req, res) {
       });
     }
   }
+// Detalles encabezado por ID
+export async function getEncabezadoId(req, res){
+  const {id}= req.params
+  try{
+    const facturaEncabezado = await FacturaEncabezado.findOne({
+      where: {
+        id
+      }
+    })
 
+    res.json(facturaEncabezado);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+
+  }
+}
 //Actualizar FacturaEncabezado
 export const updateFacturaEncabezado = async (req, res) => {
     try {

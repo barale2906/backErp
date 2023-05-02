@@ -31,7 +31,7 @@ export async function createUser(req, res) {
 export async function getUser(req, res) {
     const { id } = req.params;
     try {
-      const user = await Users.findOne({
+      const user = await Users.findAll({
         where: {
           id
         },
@@ -96,7 +96,7 @@ export async function deleteUser(req, res) {
 export async function getUserLogin(req, res) {
   const { email } = req.params;
   try {
-    const user = await Users.findOne({
+    const user = await Users.findOne({      
       where: {
         email
       },

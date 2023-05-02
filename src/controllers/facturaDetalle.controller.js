@@ -54,9 +54,14 @@ export async function getFacturaDetalle(req, res) {
 //Actualizar FacturaDetalle
 export const updateFacturaDetalle = async (req, res) => {
     try {
-      const { id } = req.params;
+      const { factId, prodId } = req.params;
       //const { code, description, unit, imagen } = req.body;  
-      const facturaDetalle = await FacturaDetalle.findByPk(id);        
+      const facturaDetalle = await FacturaDetalle.findAll({
+        where:{
+          factId,
+          prodId
+        }
+      });        
         facturaDetalle.set(req.body);      
       await facturaDetalle.save();
   
