@@ -31,6 +31,8 @@ import membresiaEncabezados from './routes/membresiaEncabezados.routes.js';
 import membresiaUsuarios from './routes/membresiaUsuarios.routes.js';
 import membresiaProductos from './routes/membresiaProductos.routes.js';
 import medioPagos from './routes/medioPago.routes.js';
+import comisionesEncabezado from './routes/comisionesEncabezado.routes.js';
+import comisionesProducto from './routes/comisionesProducto.routes.js';
 
 
 //Routes
@@ -54,6 +56,8 @@ app.use('/api/basicos',basicos);
 app.use('/api/membresiaencabezado', membresiaEncabezados);
 app.use('/api/membresiausuario', membresiaUsuarios);
 app.use('/api/membresiaproducto', membresiaProductos);
-app.use('/api/medioPago', medioPagos)
+app.use('/api/medioPago', medioPagos);
+app.use('/api/comisionencabezado', comisionesEncabezado);
+app.use('/api/comisionproducto', comisionesProducto);
 
 export default app;

@@ -32,6 +32,10 @@ export const MembresiaUsuarios = sequelize.define("membresiaUsuarios", {
         type: Sequelize.STRING,
         allowNull: true
     },
+    tipo:{
+        type: Sequelize.INTEGER,
+        defaultValue: 1 // 1 usuario, 2 comisionista
+    },
     status:{
         type: Sequelize.INTEGER,
         defaultValue: 1 // 1 Activa, 2 Inactiva 

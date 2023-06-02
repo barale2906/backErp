@@ -16,7 +16,7 @@ export async function getMedioPagos(req, res) {
 
 // Crear MedioPago
 export async function createMedioPago(req, res) {
-    const { nit, name, adress, phone, email } = req.body;
+    //aconst { nit, name, adress, phone, email } = req.body;
     try {        
         let newMedioPago = await MedioPago.create(req.body);
         return res.status(201).json(newMedioPago);
@@ -51,7 +51,6 @@ export async function getMedioPago(req, res) {
 export const updateMedioPago = async (req, res) => {
     try {
         const { id } = req.params;
-        const { adress, email, phone } = req.body;
     
         const medioPago = await MedioPago.findByPk(id);
         
@@ -69,7 +68,7 @@ export const updateMedioPago = async (req, res) => {
 //Activar-desctivar MedioPago
 export const activMedioPago = async (req, res) => {
     try {
-        const { id, status } = req.params;
+        const { id } = req.params;
         //const { status } = req.body;
 
         const medioPago = await MedioPago.findByPk(id);
