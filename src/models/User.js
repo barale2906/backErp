@@ -5,6 +5,7 @@ import { Efectivo } from './Efectivo.js';
 import { FacturaEncabezado } from './FacturaEncabezado.js';
 import { ListaPrecioEncabezado } from './ListaPreciosEncabezado.js';
 import { TecnicaEncabezado } from './TecnicaEncabezado.js';
+import { Movimientos } from './Movimientos.js';
 
 export const Users = sequelize.define("users", {
     id: {
@@ -98,6 +99,18 @@ Users.hasMany(Efectivo, {
 
 
 Efectivo.belongsTo(Users,{
+    foreignKey: 'userId',
+    targetId: 'id'
+})
+
+// Activar la relación con movimientos caja
+Users.hasMany(Movimientos, {
+    foreignKey: 'userId',
+    sourceKey: 'id'
+})
+
+
+Movimientos.belongsTo(Users,{
     foreignKey: 'userId',
     targetId: 'id'
 })

@@ -36,7 +36,7 @@ export async function getComisionProducto(req, res) {
         const comisionProducto = await ComisionesProducto.findAll({
             include:[{model:Productos}],
             where:{
-                membreEncaId:id
+                comiEncaId:id
             }
         });
 
@@ -94,7 +94,7 @@ export async function getExisteProComision(req, res) {
             const comision = await ComisionesProducto.findOne({
                 include:[{model:Productos}],
                 where: {
-                    membreEncaId:mem,
+                    comiEncaId:mem,
                     prodId:pro
                 }
             });

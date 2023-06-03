@@ -1,7 +1,7 @@
 import {Sequelize} from 'sequelize'
 import { sequelize } from '../database/bd.js'
 
-export const MembresiaUsuarios = sequelize.define("membresiaUsuarios", {
+export const ComisionesUsuario = sequelize.define("comisionesUsuario", {
     id: {
         type: Sequelize.BIGINT,
         autoIncrement: true,
@@ -11,10 +11,6 @@ export const MembresiaUsuarios = sequelize.define("membresiaUsuarios", {
         type: Sequelize.INTEGER,
         allowNull: false,
         unique: true
-    },
-    tipoDocumento: {
-        type: Sequelize.STRING,
-        allowNull: false
     },
     name: {
         type: Sequelize.STRING,

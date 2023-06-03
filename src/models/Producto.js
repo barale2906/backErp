@@ -5,6 +5,7 @@ import { Inventario } from './Inventario.js';
 import { ListaPrecio } from './ListaPrecios.js';
 import { TecnicaDetalle } from './TecnicaDetalle.js';
 import { MembresiaProductos } from './MembresiaProductos.js';
+import { ComisionesProducto } from './ComisionesProducto.js';
 
 
 export const Productos = sequelize.define("productos", {
@@ -116,6 +117,17 @@ Productos.hasMany(MembresiaProductos, {
 })
 
 MembresiaProductos.belongsTo(Productos,{
+    foreignKey: 'prodId',
+    targetId: 'id'
+})
+
+// Activar la relación con comision Productos
+Productos.hasMany(ComisionesProducto, {
+    foreignKey: 'prodId',
+    sourceKey: 'id'
+})
+
+ComisionesProducto.belongsTo(Productos,{
     foreignKey: 'prodId',
     targetId: 'id'
 })

@@ -1,6 +1,7 @@
 import {DataTypes} from 'sequelize'
 import { sequelize } from '../database/bd.js'
 import { FacturaDetalle } from './FacturaDetalle.js';
+import { Domicilio } from './Domicilio.js';
 
 
 export const FacturaEncabezado = sequelize.define("facturaEncabezados", {
@@ -64,6 +65,18 @@ FacturaEncabezado.hasMany(FacturaDetalle, {
 
 
 FacturaDetalle.belongsTo(FacturaEncabezado,{
+    foreignKey: 'factId',
+    targetId: 'id'
+})
+
+// Activar la relación con el detalle de la factura
+FacturaEncabezado.hasMany(Domicilio, {
+    foreignKey: 'factId',
+    sourceKey: 'id'
+})
+
+
+Domicilio.belongsTo(FacturaEncabezado,{
     foreignKey: 'factId',
     targetId: 'id'
 })
