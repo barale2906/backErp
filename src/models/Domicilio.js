@@ -35,6 +35,10 @@ export const Domicilio = sequelize.define("domicilios", {
         type: Sequelize.INTEGER,
         allowNull: true 
     },
+    tarifaDomi:{
+        type: Sequelize.DOUBLE,
+        allowNull: false
+    },
     status:{
         type: Sequelize.INTEGER,
         defaultValue: 1 // 1 creada, 2 recogida, 3 anulada, 4 legalizada, 5 abonada, 6 paga

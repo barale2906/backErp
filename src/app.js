@@ -36,6 +36,7 @@ import comisionesProducto from './routes/comisionesProducto.routes.js';
 import comisionesUsuario from './routes/comisionesUsuario.routes.js';
 import movimientos from './routes/movimientos.routes.js';
 import domicilio from './routes/domicilio.routes.js';
+import domicilioTarifa from './routes/domicilioTarifa.routes.js';
 
 
 //Routes
@@ -65,5 +66,6 @@ app.use('/api/comisionproducto', comisionesProducto);
 app.use('/api/comisionusuario', comisionesUsuario);
 app.use('/api/movimientos', movimientos);
 app.use('/api/domicilio', domicilio);
+app.use('/api/domicilioTarifa', domicilioTarifa);
 
 export default app;
