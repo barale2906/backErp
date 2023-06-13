@@ -16,6 +16,26 @@ export async function getDomiciliosTarifas(req, res) {
     }
 }
 
+//Obtener domicilios Tarifa por estado
+export async function getDomiciliosTarifaStatus(req, res) {
+    const { status } = req.params;
+    try {
+        const domiciliosTarifa = await DomiciliosTarifas.findAll({
+            where:{
+                status
+            },
+            order:[
+                    ['tarifa','ASC']
+                ]
+        });
+        res.json(domiciliosTarifa);
+    } catch (error) {
+        res.status(500).json({
+            message: error.message,
+        });
+    }
+}
+
 // Crear domicilioTarifa
 export async function createDomiciliosTarifa(req, res) {
     

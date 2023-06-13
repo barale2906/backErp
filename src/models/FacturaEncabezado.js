@@ -46,10 +46,21 @@ export const FacturaEncabezado = sequelize.define("facturaEncabezados", {
         type: DataTypes.DOUBLE,
         allowNull: false
     },
-    formaPago: {
+    comiId:{
         type: DataTypes.STRING,
-        allowNull: true,
-        defaultValue: "Efectivo"
+        default: 0 // Si esta en cero no aplico comisión, si esta solo el número esta sin pagar la comisión, si esta acompañada de una P ya se pago
+    },
+    domiId:{
+        type: DataTypes.INTEGER,
+        default: 0 //0 no requirio domicilio, diferente tarifa aplicable
+    },
+    domiName:{
+        type: DataTypes.TEXT,
+        default: "No Aplico Domicilio"
+    },
+    domiTarifa:{
+        type: DataTypes.DOUBLE,
+        default: 0
     },    
     status:{
         type: DataTypes.INTEGER,

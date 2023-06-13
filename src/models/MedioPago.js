@@ -1,6 +1,7 @@
 import {Sequelize} from 'sequelize'
 import { sequelize } from '../database/bd.js'
 import { Movimientos } from './Movimientos.js';
+import { FacturaEncabezado } from './FacturaEncabezado.js';
 
 export const MedioPago = sequelize.define("medioPagos", {
     id: {
@@ -26,6 +27,18 @@ MedioPago.hasMany(Movimientos, {
 
 
 Movimientos.belongsTo(MedioPago,{
+    foreignKey: 'medioId',
+    targetId: 'id'
+})
+
+// Activar la relación con factura Encabezados
+MedioPago.hasMany(FacturaEncabezado, {
+    foreignKey: 'medioId',
+    sourceKey: 'id'
+})
+
+
+FacturaEncabezado.belongsTo(MedioPago,{
     foreignKey: 'medioId',
     targetId: 'id'
 })

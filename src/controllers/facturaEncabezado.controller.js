@@ -103,7 +103,7 @@ export const updateFacturaEncabezado = async (req, res) => {
         facturaEncabezado.set(req.body);      
       await facturaEncabezado.save();
   
-      res.json(facturaEncabezado);
+      res.status(201).json(facturaEncabezado);
 
     } catch (error) {
         return res.status(500).json({ message: error.message });
