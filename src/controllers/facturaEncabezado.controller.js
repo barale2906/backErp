@@ -1,5 +1,6 @@
 import { Op } from "sequelize";
 import { Bodegas } from "../models/Bodega.js";
+import { MedioPago } from "../models/MedioPago.js";
 import { FacturaEncabezado } from "../models/FacturaEncabezado.js";
 import { Users } from "../models/User.js";
 
@@ -8,7 +9,7 @@ import { Users } from "../models/User.js";
 export async function getFacturaEncabezados(req, res) {
     try {
       const facturaEncabezados = await FacturaEncabezado.findAll({
-        include:[{model:Users}, {model:Bodegas}],
+        include:[{model:Users}, {model:Bodegas}, {model:MedioPago}],
         
       });
       res.json(facturaEncabezados);
@@ -103,7 +104,7 @@ export const updateFacturaEncabezado = async (req, res) => {
         facturaEncabezado.set(req.body);      
       await facturaEncabezado.save();
   
-      res.status(201).json(facturaEncabezado);
+      res.json(facturaEncabezado);
 
     } catch (error) {
         return res.status(500).json({ message: error.message });

@@ -80,7 +80,7 @@ FacturaDetalle.belongsTo(FacturaEncabezado,{
     targetId: 'id'
 })
 
-// Activar la relación con el detalle de la factura
+// Activar la relación con domicilios
 FacturaEncabezado.hasMany(Domicilio, {
     foreignKey: 'factId',
     sourceKey: 'id'

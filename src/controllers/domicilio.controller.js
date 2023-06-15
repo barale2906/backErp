@@ -1,13 +1,55 @@
 import { Domicilio } from "../models/Domicilio.js";
+import { FacturaEncabezado } from "../models/FacturaEncabezado.js";
 
 
 // Obtener el total de domicilios
 export async function getDomicilios(req, res) {
     try {
         const domicilios = await Domicilio.findAll({
+            include:[{model:FacturaEncabezado}],   
             order:[
                     ['id','DESC']
                 ]
+        });
+        res.json(domicilios);
+    } catch (error) {
+        res.status(500).json({
+            message: error.message,
+        });
+    }
+}
+
+// Obtener el domicilios activos
+export async function getDomiciliosActiv(req, res) {
+    try {
+        const domicilios = await Domicilio.findAll({
+            include:[{model:FacturaEncabezado}],   
+            order:[                    
+                    ['status','ASC']
+                ],
+            where:{
+                status:[1,2]
+            }
+        });
+        res.json(domicilios);
+    } catch (error) {
+        res.status(500).json({
+            message: error.message,
+        });
+    }
+}
+
+// Obtener domicilios legalizados por pagar
+export async function getDomiciliosLega(req, res) {
+    try {
+        const domicilios = await Domicilio.findAll({
+            include:[{model:FacturaEncabezado}],   
+            order:[                    
+                    ['status','ASC']
+                ],
+            where:{
+                status:[3,6]
+            }
         });
         res.json(domicilios);
     } catch (error) {
