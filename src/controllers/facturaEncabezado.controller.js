@@ -3,6 +3,7 @@ import { Bodegas } from "../models/Bodega.js";
 import { MedioPago } from "../models/MedioPago.js";
 import { FacturaEncabezado } from "../models/FacturaEncabezado.js";
 import { Users } from "../models/User.js";
+import { FacturaDetalle } from "../models/FacturaDetalle.js";
 
 
 // Obtener el total de los FacturaEncabezados
@@ -56,7 +57,7 @@ export async function createFacturaEncabezado(req, res) {
     res.json("received");
 }
  
-//Detalles de un FacturaEncabezado
+//Detalles de un FacturaEncabezado por usuario
 export async function getFacturaEncabezado(req, res) {
     const { id } = req.params;
     try {
@@ -77,6 +78,28 @@ export async function getFacturaEncabezado(req, res) {
       });
     }
   }
+
+//Detalles de un FacturaEncabezado por comisionista
+export async function getFacturaEncabezadoComi(req, res) {
+  const { comiId } = req.params;
+  try {
+    const facturaEncabezado = await FacturaEncabezado.findAll({
+      include:[{model:FacturaDetalle}],
+      order:[                    
+          ['id','ASC']
+      ],      
+      where: {
+        comiId
+      }
+    })
+    res.json(facturaEncabezado);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+}
+
 // Detalles encabezado por ID
 export async function getEncabezadoId(req, res){
   const {id}= req.params
