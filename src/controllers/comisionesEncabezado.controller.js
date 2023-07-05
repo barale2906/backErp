@@ -1,4 +1,5 @@
 import { ComisionesEncabezado } from "../models/ComisionesEncabezado.js";
+import { ComisionesProducto } from "../models/ComisionesProducto.js";
 
 // Obtener el total de las comisionesEncabezado
 export async function getComisionesEncabezado(req, res) {
@@ -31,7 +32,12 @@ export async function createComisionEncabezado(req, res) {
 export async function getComisionEncabezado(req, res) {
     const { id } = req.params;
     try {
-        const comisionEncabezado = await ComisionesEncabezado.findByPk(id);
+        const comisionEncabezado = await ComisionesEncabezado.findAll({
+        include:[{model:ComisionesProducto}],            
+        where: {
+            id
+        }
+    });
 
         if(!comisionEncabezado)
             return res.status(404).json({message: "ComisionEncabezado does not exists"});
